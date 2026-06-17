@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>つみき サポート・お問い合わせ</title>
+<meta name="description" content="つみき（Tsumiki）のアプリに関するお問い合わせ・サポート窓口です。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23F2603C'/%3E%3Crect x='30' y='54' width='40' height='22' rx='6' fill='%23FFF4EC'/%3E%3Crect x='27' y='34' width='34' height='21' rx='6' fill='%23fff'/%3E%3Crect x='48' y='20' width='28' height='19' rx='6' fill='%232B2A38' transform='rotate(-8 62 29)'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --coral:#F2603C; --coral-2:#FF8A5C; --ink:#2B2A38;
+    --cream:#FFF4EC; --paper:#FFFFFF; --line:#F0D9CC; --muted:#7C6B63;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",
+      system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:0 20px 64px}
+
+  /* header */
+  header{
+    background:linear-gradient(135deg,var(--coral-2),var(--coral));
+    color:#fff; padding:40px 20px 48px; position:relative; overflow:hidden;
+  }
+  header .deco{position:absolute; right:-40px; top:-30px; width:200px; height:200px;
+    opacity:.16; transform:rotate(8deg)}
+  .brand{display:flex; align-items:center; gap:12px; max-width:640px; margin:0 auto}
+  .brand svg{display:block; width:40px; height:40px; border-radius:11px;
+    box-shadow:0 6px 16px rgba(120,40,24,.25)}
+  .brand b{font-size:20px; font-weight:700; letter-spacing:.02em}
+  .brand span{font-size:13px; opacity:.85; font-weight:500}
+  .lead{max-width:640px; margin:22px auto 0}
+  .lead h1{margin:0 0 8px; font-size:30px; line-height:1.3; letter-spacing:.01em}
+  .lead p{margin:0; font-size:15px; opacity:.92}
+  .ctx{display:inline-block; margin-bottom:10px; padding:5px 12px; border-radius:999px;
+    background:rgba(255,255,255,.22); font-size:13px; font-weight:700; letter-spacing:.02em}
+
+  /* cards */
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:18px;
+    padding:24px; margin-top:20px;
+  }
+  .card:first-of-type{margin-top:-24px} /* lift first card over header */
+  h2{font-size:14px; letter-spacing:.08em; color:var(--coral);
+    margin:0 0 14px; font-weight:700}
+  p{margin:0 0 14px}
+  .note-list{margin:6px 0 0; padding:0; list-style:none; font-size:14.5px; color:var(--muted)}
+  .note-list li{padding-left:20px; position:relative; margin-bottom:6px}
+  .note-list li::before{content:""; position:absolute; left:2px; top:11px;
+    width:7px; height:7px; border-radius:2px; background:var(--coral-2)}
+
+  /* buttons */
+  .btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:15px 18px; border-radius:13px; font-size:16px;
+    font-weight:700; text-decoration:none; cursor:pointer; border:1.5px solid transparent;
+    transition:transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+  .btn-primary{background:var(--coral); color:#fff}
+  .btn-primary:hover{background:#dd5331; transform:translateY(-1px)}
+  .email{display:block; text-align:center; margin-top:12px; font-size:15px}
+  .email a{color:var(--ink); font-weight:600}
+  .app-grid{display:grid; gap:10px}
+  .btn-app{background:#fff; border-color:var(--line); color:var(--ink);
+    justify-content:space-between; font-size:15px; font-weight:600}
+  .btn-app:hover{border-color:var(--coral-2); transform:translateY(-1px)}
+  .btn-app .tag{font-size:12px; font-weight:600; color:var(--muted)}
+  .arrow{color:var(--coral-2); font-weight:700}
+
+  /* english */
+  .en{margin-top:20px}
+  .en p{color:var(--muted); font-size:14.5px}
+  .en h2{color:var(--muted)}
+
+  footer{text-align:center; color:var(--muted); font-size:13px; margin-top:32px}
+
+  @media (max-width:480px){
+    .lead h1{font-size:25px}
+    header{padding:32px 20px 44px}
+  }
+  @media (prefers-reduced-motion:reduce){ .btn{transition:none} }
+</style>
+</head>
+<body>
+<header>
+  <svg class="deco" viewBox="0 0 100 100" aria-hidden="true"><rect x="30" y="54" width="40" height="22" rx="6" fill="#fff"/><rect x="27" y="34" width="34" height="21" rx="6" fill="#fff"/><rect x="48" y="20" width="28" height="19" rx="6" fill="#fff" transform="rotate(-8 62 29)"/></svg>
+  <div class="brand">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#F2603C"/><rect x="30" y="54" width="40" height="22" rx="6" fill="#FFF4EC"/><rect x="27" y="34" width="34" height="21" rx="6" fill="#fff"/><rect x="48" y="20" width="28" height="19" rx="6" fill="#2B2A38" transform="rotate(-8 62 29)"/></svg>
+    <div>
+      <b>つみき</b> <span>Tsumiki</span>
+    </div>
+  </div>
+  <div class="lead">
+    <span class="ctx" id="app-context" hidden></span>
+    <h1>サポート・お問い合わせ</h1>
+    <p>アプリの不具合・ご要望・ご質問は、こちらからお気軽にどうぞ。</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="card">
+    <h2>お問い合わせ</h2>
+    <p>下のボタンからメールが開きます。内容を確認のうえ、数日以内を目安にご返信します。</p>
+    <a class="btn btn-primary" id="contact-general" href="mailto:tsumikiapps@gmail.com"
+       data-subject="お問い合わせ（つみき）"
+       data-body="ご利用端末: 
+OSバージョン: 
+アプリ名 / バージョン: 
+お問い合わせ内容: 
+">メールで問い合わせる</a>
+    <span class="email">または直接送信：<a href="mailto:tsumikiapps@gmail.com">tsumikiapps@gmail.com</a></span>
+  </section>
+
+  <section class="card" id="app-picker">
+    <h2>アプリを選んで問い合わせ</h2>
+    <p>件名にアプリ名が入った状態でメールが開きます。</p>
+    <div class="app-grid">
+      <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
+         data-subject="[オシカド] お問い合わせ"
+         data-body="ご利用端末: 
+OSバージョン: 
+アプリのバージョン: 
+お問い合わせ内容: 
+"><span>オシカド <span class="tag">推し活カウントダウン</span></span><span class="arrow">→</span></a>
+      <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
+         data-subject="[逆算学習プランナー] お問い合わせ"
+         data-body="ご利用端末: 
+OSバージョン: 
+アプリのバージョン: 
+お問い合わせ内容: 
+"><span>逆算学習プランナー <span class="tag">学習プランナー</span></span><span class="arrow">→</span></a>
+      <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
+         data-subject="[固定費カット] お問い合わせ"
+         data-body="ご利用端末: 
+OSバージョン: 
+アプリのバージョン: 
+お問い合わせ内容: 
+"><span>固定費カット <span class="tag">固定費の見える化</span></span><span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>スムーズな対応のために</h2>
+    <p>差し支えなければ、以下を添えていただけると調査が早くなります。</p>
+    <ul class="note-list">
+      <li>ご利用の端末（例：iPhone 15 Pro）</li>
+      <li>iOS のバージョン</li>
+      <li>アプリのバージョン</li>
+      <li>どの画面で、何をしたときに起きたか</li>
+    </ul>
+  </section>
+
+  <section class="card en">
+    <h2>ENGLISH</h2>
+    <p>For bug reports, feature requests, or questions about our apps, please email us. We aim to reply within a few days.</p>
+    <a class="btn btn-primary" href="mailto:tsumikiapps@gmail.com"
+       data-subject="[Support] Inquiry"
+       data-body="Device: 
+iOS version: 
+App name / version: 
+Message: 
+">Contact us</a>
+    <span class="email">or email <a href="mailto:tsumikiapps@gmail.com">tsumikiapps@gmail.com</a></span>
+  </section>
+
+  <footer>© 2026 つみき (Tsumiki)</footer>
+</div>
+
+<script>
+  // If an app is specified via the URL (e.g. ?app=オシカド), tailor the page to it.
+  // App Store Connect: set each app's Support URL to .../?app=<アプリ名>.
+  // New apps need no edits here — just a different ?app= value.
+  try {
+    var app = (new URLSearchParams(location.search).get('app') || '').trim().slice(0, 60);
+    if (app) {
+      var ctx = document.getElementById('app-context');
+      ctx.textContent = app;
+      ctx.hidden = false;
+      document.getElementById('contact-general')
+              .setAttribute('data-subject', '[' + app + '] お問い合わせ');
+      var picker = document.getElementById('app-picker');
+      if (picker) picker.hidden = true;
+    }
+  } catch (e) { /* no-op: fall back to the general hub */ }
+
+  // Enhance mailto links with prefilled subject/body (works without JS too).
+  document.querySelectorAll('a[data-subject]').forEach(function(a){
+    var subject = a.getAttribute('data-subject') || '';
+    var body = a.getAttribute('data-body') || '';
+    var url = 'mailto:tsumikiapps@gmail.com?subject=' + encodeURIComponent(subject);
+    if (body) url += '&body=' + encodeURIComponent(body);
+    a.setAttribute('href', url);
+  });
+</script>
+</body>
+</html>
