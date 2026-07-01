@@ -136,12 +136,25 @@ OSバージョン:
 "><span>逆算学習プランナー <span class="tag">学習プランナー</span></span><span class="arrow">→</span></a>
       <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
          data-subject="[固定費カット] お問い合わせ"
-         data-body="ご利用端末: 
-OSバージョン: 
-アプリのバージョン: 
-お問い合わせ内容: 
+         data-body="ご利用端末:
+OSバージョン:
+アプリのバージョン:
+お問い合わせ内容:
 "><span>固定費カット <span class="tag">固定費の見える化</span></span><span class="arrow">→</span></a>
+      <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
+         data-subject="[Baby Visit Notes] Support"
+         data-body="Device:
+iOS version:
+App version:
+Message:
+"><span>Baby Visit Notes <span class="tag">Doctor visit notes</span></span><span class="arrow">→</span></a>
     </div>
+  </section>
+
+  <section class="card en" id="privacy-card" hidden>
+    <h2>PRIVACY POLICY</h2>
+    <p>Baby Visit Notes stores all data on your device only. No accounts, no ads, no cloud uploads.</p>
+    <a class="btn btn-primary" href="/tsumiki-support/privacy.html" id="privacy-link">Read Privacy Policy →</a>
   </section>
 
   <section class="card">
@@ -174,17 +187,30 @@ Message:
 <script>
   // If an app is specified via the URL (e.g. ?app=オシカド), tailor the page to it.
   // App Store Connect: set each app's Support URL to .../?app=<アプリ名>.
-  // New apps need no edits here — just a different ?app= value.
+  // Add display-name overrides and per-app extras in the appConfig map below.
+  var appConfig = {
+    'babyvisitnotes': {
+      displayName: 'Baby Visit Notes',
+      subject: '[Baby Visit Notes] Support',
+      showPrivacy: true
+    }
+  };
   try {
     var app = (new URLSearchParams(location.search).get('app') || '').trim().slice(0, 60);
     if (app) {
+      var cfg = appConfig[app] || {};
+      var displayName = cfg.displayName || app;
       var ctx = document.getElementById('app-context');
-      ctx.textContent = app;
+      ctx.textContent = displayName;
       ctx.hidden = false;
       document.getElementById('contact-general')
-              .setAttribute('data-subject', '[' + app + '] お問い合わせ');
+              .setAttribute('data-subject', cfg.subject || '[' + displayName + '] お問い合わせ');
       var picker = document.getElementById('app-picker');
       if (picker) picker.hidden = true;
+      if (cfg.showPrivacy) {
+        var pc = document.getElementById('privacy-card');
+        if (pc) pc.hidden = false;
+      }
     }
   } catch (e) { /* no-op: fall back to the general hub */ }
 
