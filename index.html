@@ -148,13 +148,20 @@ iOS version:
 App version:
 Message:
 "><span>Baby Visit Notes <span class="tag">Doctor visit notes</span></span><span class="arrow">→</span></a>
+      <a class="btn btn-app" href="mailto:tsumikiapps@gmail.com"
+         data-subject="[YumeLog] お問い合わせ"
+         data-body="ご利用端末:
+OSバージョン:
+アプリのバージョン:
+お問い合わせ内容:
+"><span>YumeLog <span class="tag">夢日記×オンデバイスAI</span></span><span class="arrow">→</span></a>
     </div>
   </section>
 
-  <section class="card en" id="privacy-card" hidden>
-    <h2>PRIVACY POLICY</h2>
-    <p>Baby Visit Notes stores all data on your device only. No accounts, no ads, no cloud uploads.</p>
-    <a class="btn btn-primary" href="/tsumiki-support/privacy.html" id="privacy-link">Read Privacy Policy →</a>
+  <section class="card" id="privacy-card" hidden>
+    <h2 id="privacy-heading">プライバシーポリシー</h2>
+    <p id="privacy-desc">Baby Visit Notesは、すべてのデータを端末内にのみ保存します。アカウント不要・広告なし・クラウド送信なし。</p>
+    <a class="btn btn-primary" href="/tsumiki-support/privacy.html" id="privacy-link">プライバシーポリシーを読む →</a>
   </section>
 
   <section class="card">
@@ -192,11 +199,22 @@ Message:
     'babyvisitnotes': {
       displayName: 'Baby Visit Notes',
       subject: '[Baby Visit Notes] Support',
-      showPrivacy: true
+      privacyUrl: '/tsumiki-support/privacy.html',
+      privacyHeading: 'PRIVACY POLICY',
+      privacyDesc: 'Baby Visit Notes stores all data on your device only. No accounts, no ads, no cloud uploads.',
+      privacyLinkText: 'Read Privacy Policy →'
+    },
+    'yumelog': {
+      displayName: 'YumeLog',
+      subject: '[YumeLog] お問い合わせ',
+      privacyUrl: '/tsumiki-support/yumelog-privacy.html',
+      privacyHeading: 'プライバシーポリシー',
+      privacyDesc: 'YumeLogは、夢の記録をすべて端末内にのみ保存します。AI分析もオンデバイスで完結し、外部に送信されることはありません。',
+      privacyLinkText: 'プライバシーポリシーを読む →'
     }
   };
   try {
-    var app = (new URLSearchParams(location.search).get('app') || '').trim().slice(0, 60);
+    var app = (new URLSearchParams(location.search).get('app') || '').trim().toLowerCase().slice(0, 60);
     if (app) {
       var cfg = appConfig[app] || {};
       var displayName = cfg.displayName || app;
@@ -207,9 +225,16 @@ Message:
               .setAttribute('data-subject', cfg.subject || '[' + displayName + '] お問い合わせ');
       var picker = document.getElementById('app-picker');
       if (picker) picker.hidden = true;
-      if (cfg.showPrivacy) {
+      if (cfg.privacyUrl) {
         var pc = document.getElementById('privacy-card');
-        if (pc) pc.hidden = false;
+        if (pc) {
+          pc.hidden = false;
+          document.getElementById('privacy-heading').textContent = cfg.privacyHeading || 'PRIVACY POLICY';
+          document.getElementById('privacy-desc').textContent = cfg.privacyDesc || '';
+          var link = document.getElementById('privacy-link');
+          link.href = cfg.privacyUrl;
+          link.textContent = cfg.privacyLinkText || 'Read Privacy Policy →';
+        }
       }
     }
   } catch (e) { /* no-op: fall back to the general hub */ }
